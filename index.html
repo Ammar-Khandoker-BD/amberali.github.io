@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Amber Ali Khandoker - Professional Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 2rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            margin: 1rem auto 0;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .profile-placeholder {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            border-radius: 15px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .exp-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .exp-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .exp-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .exp-card .company {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .exp-card .duration {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category h3:before {
+            content: '▸';
+            color: #3498db;
+            font-size: 1.5rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .skill-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .edu-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid #3498db;
+        }
+        
+        .edu-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .edu-card p {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+        
+        .edu-card .result {
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .contact-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-card p {
+            color: #555;
+            word-break: break-word;
+        }
+        
+        .contact-card a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        footer p {
+            opacity: 0.9;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 60px 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Amber Ali</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Md. Amber Ali Khandoker</h1>
+        <p>Computer Operations | Data Entry | IT Support | HR & Admin</p>
+        <p class="subtitle">ERP & HRIS Specialist | AI & Prompt Engineering | Graphics & Video Editing</p>
+        <div>
+            <a href="#contact" class="btn">Get In Touch</a>
+            <a href="#experience" class="btn">View Experience</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Highly organized and detail-oriented professional with <strong>4+ years of experience</strong> in computer operations, data entry, IT support and administrative support. Expertise in Enterprise Resource Planning (ERP) and Human Resource Information Systems (HRIS), ensuring seamless management of organizational data and workflows.</p>
+                
+                <p>In addition to my core administrative and data management skills, I am proficient in leveraging modern technology to drive efficiency. My skills include <strong>AI, Prompt Engineering, and MIS</strong>, which I use to automate tasks, analyze data more effectively, and generate valuable insights.</p>
+                
+                <p>I am also skilled in <strong>WordPress, Graphics Design, and Video Editing</strong>, allowing me to create engaging digital content and communication materials. Adept at multitasking, meeting deadlines, and maintaining confidentiality.</p>
+                
+                <p>Strong communication, problem-solving, and team collaboration skills with a commitment to delivering high-quality results.</p>
+            </div>
+            <div>
+                <div class="profile-placeholder">
+                    MAK<br>Professional<br>Portfolio
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="experience-grid">
+            <div class="exp-card">
+                <h3>Executive</h3>
+                <div class="company">Step Media Limited</div>
+                <div class="duration">October 2025 - Present</div>
+                <p><strong>Department:</strong> Store Management</p>
+                <p>Currently managing store operations, inventory control, and ensuring efficient supply chain management.</p>
+            </div>
+            
+            <div class="exp-card">
+                <h3>Junior Executive</h3>
+                <div class="company">RFL Electronics Limited</div>
+                <div class="duration">1.5 Years</div>
+                <p><strong>Department:</strong> HR & Admin</p>
+                <p>Managed human resource operations including recruitment, employee relations, HRIS management, and administrative support functions.</p>
+            </div>
+            
+            <div class="exp-card">
+                <h3>Computer Operator</h3>
+                <div class="company">Mahdeen Group</div>
+                <div class="duration">1.1 Years</div>
+                <p><strong>Department:</strong> Finishing - Production</p>
+                <p>Handled computer operations, data management, and production documentation for the finishing department.</p>
+            </div>
+            
+            <div class="exp-card">
+                <h3>Data Entry Operator</h3>
+                <div class="company">Chorka Apparels Limited</div>
+                <div class="duration">0.8 Years</div>
+                <p><strong>Department:</strong> Finishing - Production</p>
+                <p>Performed accurate data entry operations, maintained production records, and supported finishing department operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Professional Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <ul class="skill-list">
+                    <li>Artificial Intelligence</li>
+                    <li>Prompt Engineering</li>
+                    <li>ERP (Enterprise Resource Planning)</li>
+                    <li>HRIS (HR Information System)</li>
+                    <li>MIS (Management Information System)</li>
+                    <li>Database Management</li>
+                    <li>Data Entry Systems</li>
+                    <li>Professional Microsoft Office</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Digital & Creative</h3>
+                <ul class="skill-list">
+                    <li>WordPress Development</li>
+                    <li>Graphics Design (Canva, Freepik)</li>
+                    <li>Video Editing</li>
+                    <li>Email Handling</li>
+                    <li>Internet Browsing</li>
+                    <li>Lead Generation</li>
+                    <li>Virtual Assistant</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Business Operations</h3>
+                <ul class="skill-list">
+                    <li>Human Resource Management</li>
+                    <li>Store Management</li>
+                    <li>Inventory Management</li>
+                    <li>Export Packing List</li>
+                    <li>Commercial Invoice</li>
+                    <li>Time Management</li>
+                    <li>Leadership</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <ul class="skill-list">
+                    <li>Quick Learner</li>
+                    <li>Problem Solving</li>
+                    <li>Critical Thinking</li>
+                    <li>Team Collaboration</li>
+                    <li>Communication</li>
+                    <li>Interpersonal Skills</li>
+                    <li>Detail-Oriented</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-grid">
+            <div class="edu-card">
+                <h3>Bachelor of Social Science (BSS)</h3>
+                <p><strong>Institute:</strong> Kurigram Govt. College</p>
+                <p><strong>Board:</strong> National University</p>
+                <p><strong>Subject:</strong> BSS (Pass Course)</p>
+                <p class="result">Status: Applied</p>
+            </div>
+            
+            <div class="edu-card">
+                <h3>Higher Secondary Certificate (HSC)</h3>
+                <p><strong>Institute:</strong> Lalmonirhat Adarsha College, Lalmonirhat</p>
+                <p><strong>Board:</strong> Dinajpur</p>
+                <p><strong>Group:</strong> Humanities</p>
+                <p class="result">Result: 3.67 out of 5.00</p>
+                <p><strong>Year:</strong> 2020</p>
+            </div>
+            
+            <div class="edu-card">
+                <h3>Secondary School Certificate (SSC)</h3>
+                <p><strong>Institute:</strong> Purbo Balakandi Dakhil Madrasha</p>
+                <p><strong>Board:</strong> Madrasha</p>
+                <p><strong>Group:</strong> Science</p>
+                <p class="result">Result: 3.39 out of 5.00</p>
+                <p><strong>Year:</strong> 2018</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <p style="text-align: center; margin-bottom: 2rem;">I'm always open to discussing new opportunities, projects, or collaborations. Feel free to reach out!</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:ammar.khandoker@outlook.com">ammar.khandoker@outlook.com</a></p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>📱 Phone</h3>
+                    <p><a href="tel:+8801716861353">+880 1716-861353</a></p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>📍 Location</h3>
+                    <p>Ashulia, Savar<br>Dhaka, Bangladesh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Md. Amber Ali Khandoker. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Professional Portfolio</p>
+    </footer>
+</body>
+</html>
